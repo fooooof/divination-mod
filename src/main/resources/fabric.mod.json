@@ -3,10 +3,10 @@
   "id": "modid",
   "version": "${version}",
 
-  "name": "Example Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "name": "Divination",
+  "description": "a mod focussed on a simple and intuitive vanilla+ magic system",
   "authors": [
-    "Me!"
+    "foof"
   ],
   "contact": {
     "homepage": "https://fabricmc.net/",
@@ -14,16 +14,16 @@
   },
 
   "license": "CC0-1.0",
-  "icon": "assets/modid/icon.png",
+  "icon": "assets/divination/icon.png",
 
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.fabricmc.example.ExampleModKt::init"
+      "net.foof.divination.DivinationKt::init"
     ]
   },
   "mixins": [
-    "modid.mixins.json"
+    "divination.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=0.8.7",
