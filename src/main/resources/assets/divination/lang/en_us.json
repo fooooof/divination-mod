@@ -1,0 +1,7 @@
+{
+  "item.divination.wand_of_sparking": "Wand of Sparking",
+  "item.divination.freurhil_ingot": "Freurhil Ingot",
+  "entity.divination.fireball": "Spark",
+  "item.divination.base_wand.tooltip_1": "Line 1 of my tooltip",
+  "item.divination.base_wand.tooltip_2": "Line 2 of my tooltip"
+}
