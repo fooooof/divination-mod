@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "divination:base_wand"
+  },
+  "addition": {
+    "item": "divination:magma_stone"
+  },
+  "result": {
+    "item": "divination:wand_of_sparking"
+  }
+}

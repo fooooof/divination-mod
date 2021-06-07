@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "divination:item/wand_of_sparking"
+    "layer0": "divination:item/twig_wand"
   }
 }

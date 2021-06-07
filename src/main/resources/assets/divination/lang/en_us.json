@@ -1,7 +1,15 @@
 {
   "item.divination.wand_of_sparking": "Wand of Sparking",
+  "item.divination.base_wand": "Enchanted Stick",
   "item.divination.freurhil_ingot": "Freurhil Ingot",
-  "entity.divination.fireball": "Spark",
-  "item.divination.base_wand.tooltip_1": "Line 1 of my tooltip",
-  "item.divination.base_wand.tooltip_2": "Line 2 of my tooltip"
+  "item.divination.freurhil_nugget": "Freurhil Nugget",
+  "item.divination.raw_freurhil": "Raw Freurhil",
+  "item.divination.magma_stone": "Magma Stone",
+  "entity.divination.spark": "Spark",
+  "item.divination.base_wand.tooltip": "a strange stick emanating magical energy.",
+  "item.divination.base_wand.tooltip_2": "Combine with runes in a smithing table to divinate and enchant",
+  "item.divination.wand_of_sparking.tooltip": "Enchanted with a rune of fire.",
+  "item.divination.wand_of_sparking.tooltip_2": "4 damage",
+  "item.divination.magma_stone.tooltip": "A powerful rune of fire.",
+  "item.divination.magma_stone.tooltip_2": "divinate a wand with a smithing table to harness its power"
 }

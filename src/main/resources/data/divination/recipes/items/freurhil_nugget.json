@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "divination:freurhil_ingot"
+    }
+  ],
+  "result": {
+    "item": "divination:freurhil_nugget",
+    "count": 9
+  }
+}

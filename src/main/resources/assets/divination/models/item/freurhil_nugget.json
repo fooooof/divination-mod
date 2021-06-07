@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "divination:item/freurhil_ingot"
+    "layer0": "divination:item/freurhil_nugget"
   }
 }

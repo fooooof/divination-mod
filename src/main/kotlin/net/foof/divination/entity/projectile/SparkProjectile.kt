@@ -11,6 +11,7 @@ import net.minecraft.entity.LivingEntity
 import net.minecraft.entity.damage.DamageSource
 import net.minecraft.entity.effect.StatusEffectInstance
 import net.minecraft.entity.effect.StatusEffects
+import net.minecraft.entity.mob.StrayEntity
 import net.minecraft.entity.passive.SnowGolemEntity
 import net.minecraft.entity.projectile.thrown.ThrownEntity
 import net.minecraft.entity.projectile.thrown.ThrownItemEntity
@@ -56,12 +57,12 @@ class SparkProjectile : ThrownItemEntity {
     override fun onEntityHit(entityHitResult: EntityHitResult) { // called on entity hit.
         super.onEntityHit(entityHitResult)
         val entity: Entity = entityHitResult.entity // sets a new Entity instance as the EntityHitResult (victim)
-        val i = if (entity is SnowGolemEntity) 8 else 4 // sets damage to 8 if the Entity instance is an instance of SnowGolemEntity
+        val i = if (entity is SnowGolemEntity || entity is StrayEntity) 8 else 4 // sets damage to 8 if the Entity instance is an instance of SnowGolemEntity or StrayEntity
         entity.damage(DamageSource.thrownProjectile(this, this.owner), i.toFloat()) // deals damage
         if (entity is LivingEntity) { // checks if entity is an instance of LivingEntity (meaning it is not a boat or minecart)
             entity.setOnFireFor(2) // sets on fire
-            entity.addStatusEffect(StatusEffectInstance(StatusEffects.SLOWNESS, 20 * 2, 3)) // applies a status effect
-            entity.playSound(SoundEvents.ENTITY_BLAZE_DEATH, 0.3f, 1.7f) // plays a sound for the entity hit only
+            // entity.addStatusEffect(StatusEffectInstance(StatusEffects.SLOWNESS, 20 * 2, 3)) // applies a status effect
+            entity.playSound(SoundEvents.BLOCK_FIRE_AMBIENT, 0.3f, 1.8f) // plays a sound for the entity hit only
             groundParticles() // particle effects
         }
     }
@@ -69,6 +70,7 @@ class SparkProjectile : ThrownItemEntity {
     override fun onCollision(hitResult: HitResult) { // called on collision with a block
         super.onCollision(hitResult)
         groundParticles()
+
         if (!world.isClient) { // checks if the world is client
             world.sendEntityStatus(this, 3.toByte()) // particle?
             this.remove() // kills the projectile
@@ -89,10 +91,15 @@ class SparkProjectile : ThrownItemEntity {
     private fun groundParticles() {
         val world: World? = MinecraftClient.getInstance().world
         val entity = this as ThrownEntity
-            world!!.addParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE, true, entity.x, entity.y, entity.z, 0.0, 0.0, 0.0)
-            world!!.addParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE, true, entity.x, entity.y, entity.z, 0.0, 0.0, 0.0)
+        world!!.addParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE, true, entity.x, entity.y, entity.z, 0.0, 0.0, 0.0)
+        world!!.addParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE, true, entity.x, entity.y, entity.z, 0.0, 0.0, 0.0)
+        world!!.addParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE, true, entity.x, entity.y, entity.z, 0.0, 0.0, 0.0)
+
+        for (i in 1..10) {
             world!!.addParticle(ParticleTypes.LAVA, true, entity.x, entity.y, entity.z, 0.0, 0.0, 0.0)
-            world!!.addParticle(ParticleTypes.LAVA, true, entity.x, entity.y, entity.z, 0.0, 0.0, 0.0)
+        }
+        entity.playSound(SoundEvents.BLOCK_FIRE_AMBIENT, 0.3f, 1.8f) // plays a sound for the ground contact
+
     }
 
 }

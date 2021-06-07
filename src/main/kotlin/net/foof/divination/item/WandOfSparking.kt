@@ -1,17 +1,31 @@
 package net.foof.divination.item
 
 import net.foof.divination.entity.projectile.SparkProjectile
+import net.minecraft.client.item.TooltipContext
 import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.item.Item
 import net.minecraft.item.ItemStack
 import net.minecraft.sound.SoundCategory
 import net.minecraft.sound.SoundEvents
+import net.minecraft.text.Text
+import net.minecraft.text.TranslatableText
+import net.minecraft.util.Formatting
 import net.minecraft.util.Hand
 import net.minecraft.util.TypedActionResult
 import net.minecraft.world.World
 
 
 class WandOfSparking(settings: Settings?) : Item(settings) {
+    override fun appendTooltip(
+        itemStack: ItemStack?,
+        world: World?,
+        tooltip: MutableList<Text?>,
+        tooltipContext: TooltipContext?
+    ) {
+        tooltip.add(TranslatableText("item.divination.wand_of_sparking.tooltip").formatted(Formatting.GRAY))
+        tooltip.add(TranslatableText("item.divination.wand_of_sparking.tooltip_2").formatted(Formatting.YELLOW))
+    }
+
     override fun use(world: World, user: PlayerEntity, hand: Hand): TypedActionResult<ItemStack> {
         val itemStack = user.getStackInHand(hand) // creates a new ItemStack instance of the user's itemStack in-hand
         world.playSound(
@@ -34,7 +48,7 @@ class WandOfSparking(settings: Settings?) : Item(settings) {
             0.3f,
             1.4f
         ) // plays a globalSoundEvent
-		user.itemCooldownManager.set(this, 5);
+		user.itemCooldownManager.set(this, 8);
 		if (!world.isClient) {
             val snowballEntity = SparkProjectile(world, user)
             snowballEntity.setItem(itemStack)

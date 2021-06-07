@@ -8,7 +8,7 @@ import net.minecraft.text.TranslatableText
 import net.minecraft.util.Formatting
 import net.minecraft.world.World
 
-class BaseWand(settings: Settings?) : Item(settings) {
+class MagmaStone(settings: Settings?) : Item(settings) {
     override fun appendTooltip(
         itemStack: ItemStack?,
         world: World?,
@@ -16,8 +16,8 @@ class BaseWand(settings: Settings?) : Item(settings) {
         tooltipContext: TooltipContext?
     ) {
 
-        tooltip.add(TranslatableText("item.divination.base_wand.tooltip").formatted(Formatting.GRAY))
+        tooltip.add(TranslatableText("item.divination.magma_stone.tooltip").formatted(Formatting.GRAY))
 
-        tooltip.add(TranslatableText("item.divination.base_wand.tooltip_2").formatted(Formatting.YELLOW))
+        tooltip.add(TranslatableText("item.divination.magma_stone.tooltip_2").formatted(Formatting.YELLOW))
     }
 }

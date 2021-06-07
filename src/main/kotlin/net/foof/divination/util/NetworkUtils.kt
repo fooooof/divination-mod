@@ -8,6 +8,8 @@ import net.minecraft.network.Packet
 import net.minecraft.network.PacketByteBuf
 import net.minecraft.network.packet.s2c.play.EntitySpawnS2CPacket
 
+// https://github.com/miyo6032/bosses-of-mass-destruction
+
 class NetworkUtils {
 
     companion object {
