@@ -1,20 +1,13 @@
 package net.foof.divination.util
 
 import io.netty.buffer.Unpooled
-import net.fabricmc.api.EnvType
-import net.fabricmc.api.Environment
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking
 import net.foof.divination.Mod
-import net.minecraft.client.MinecraftClient
 import net.minecraft.entity.Entity
-import net.minecraft.entity.LivingEntity
 import net.minecraft.network.Packet
 import net.minecraft.network.PacketByteBuf
 import net.minecraft.network.packet.s2c.play.EntitySpawnS2CPacket
-import net.minecraft.server.network.ServerPlayerEntity
-import net.minecraft.util.math.Vec3d
 
-// MOST OF THIS CODE IS FROM BOSSES OF MASS DESTRUCTION
 class NetworkUtils {
 
     companion object {
